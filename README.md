@@ -1,4 +1,4 @@
-<img width="338" height="720" alt="image" src="https://github.com/user-attachments/assets/0ec3d6ff-b612-4933-b4ec-818ea8ee09d2" /># Петров Артём 4ИСИП-122
+# Петров Артём 4ИСИП-122
 
 ## Описание приложения
 
