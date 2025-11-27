@@ -14,7 +14,7 @@
 ### Ключевые файлы:
 
 **Ядро базы данных:**
-- `app/src/main/java/com/example/authapp/data/database/AppDatabase.kt`
+- [AppDatabase.kt](app/src/main/java/com/example/authapp/data/database/AppDatabase.kt)
   - Главный класс базы данных, паттерн Singleton
   - Конфигурация и инициализация базы данных
   - Управление версиями и миграциями
