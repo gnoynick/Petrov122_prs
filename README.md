@@ -19,28 +19,28 @@
   - Конфигурация и инициализация базы данных
   - Управление версиями и миграциями
 
-- `app/src/main/java/com/example/authapp/data/database/Converters.kt`
+- [Converters.kt](app/src/main/java/com/example/petrov122_prs/data/database/Converters.kt)
   - Конвертеры типов для объектов Date
   - Позволяет хранить сложные типы данных
 
 **Объекты доступа к данным (DAO):**
-- `app/src/main/java/com/example/authapp/data/dao/UserDao.kt`
+- [UserDao.kt](app/src/main/java/com/example/petrov122_prs/data/dao/UserDao.kt)
   - Операции CRUD для пользователей
   - Запросы пользователей (по email, имени, ID)
   - Обновления пароля и профиля
 
-- `app/src/main/java/com/example/authapp/data/dao/SessionDao.kt`
+- [SessionDao.kt](app/src/main/java/com/example/petrov122_prs/data/dao/SessionDao.kt)
   - Запросы управления сессиями
   - Валидация и очистка токенов
   - Обработка сессий для конкретных устройств
 
 **Сущности базы данных:**
-- `app/src/main/java/com/example/authapp/data/entities/UserEntity.kt`
+- [UserEntity.kt](app/src/main/java/com/example/petrov122_prs/data/entities/UserEntity.kt)
   - Схема таблицы пользователей с индексами
   - Поля: username, email, password_hash, salt, личная информация
   - Уникальные ограничения на email и имя пользователя
 
-- `app/src/main/java/com/example/authapp/data/entities/UserSessionEntity.kt`
+- [UserSessionEntity.kt](app/src/main/java/com/example/petrov122_prs/data/entities/UserSessionEntity.kt)
   - Таблица сессий с внешним ключом на пользователей
   - Поля: session_token, device_id, expiry_time
   - Каскадное удаление при удалении пользователя
@@ -61,7 +61,7 @@
 ### Ключевые файлы:
 
 **Слой репозитория:**
-- `app/src/main/java/com/example/authapp/data/repository/AuthRepositoryImpl.kt`
+- [AuthRepositoryImpl.kt](app/src/main/java/com/example/petrov122_prs/data/repository/AuthRepositoryImpl.kt)
   - Логика регистрации с валидацией
   - Аутентификация при входе
   - Функциональность смены пароля
@@ -69,35 +69,35 @@
   - Интеграция управления сессиями
 
 **Доменный слой:**
-- `app/src/main/java/com/example/authapp/domain/repository/AuthRepository.kt`
+- [AuthRepository.kt](app/src/main/java/com/example/petrov122_prs/domain/repository/AuthRepository.kt)
   - Интерфейс, определяющий операции аутентификации
   - Контракт для реализации репозитория
 
-- `app/src/main/java/com/example/authapp/domain/models/AuthResult.kt`
+- [AuthResult.kt](app/src/main/java/com/example/petrov122_prs/domain/models/AuthResult.kt)
   - Sealed-классы для результатов аутентификации (Успех/Ошибка)
   - Управление состоянием аутентификации
   - Модель профиля пользователя
 
 **Утилиты безопасности:**
-- `app/src/main/java/com/example/authapp/domain/utils/PasswordManager.kt`
+- [PasswordManager.kt](app/src/main/java/com/example/petrov122_prs/domain/utils/PasswordManager.kt)
   - Хеширование паролей PBKDF2 с солью
   - Проверка сложности пароля (СЛАБЫЙ/СРЕДНИЙ/СИЛЬНЫЙ)
   - Генерация безопасной случайной соли
   - Проверка пароля
 
-- `app/src/main/java/com/example/authapp/domain/utils/SessionManager.kt`
+- [SessionManager.kt](app/src/main/java/com/example/petrov122_prs/domain/utils/SessionManager.kt)
   - Генерация токенов сессии (на основе UUID)
   - Управление сроком действия сессий (24ч или 30 дней)
   - Отслеживание ID устройства
   - Валидация сессий
 
-- `app/src/main/java/com/example/authapp/domain/utils/PreferencesManager.kt`
+- [PreferencesManager.kt](app/src/main/java/com/example/petrov122_prs/domain/utils/PreferencesManager.kt)
   - Безопасное хранение токенов сессии
   - Пользовательские настройки (запомнить меня)
   - Реализация DataStore
 
 **ViewModel:**
-- `app/src/main/java/com/example/authapp/presentation/viewmodels/AuthViewModel.kt`
+- [AuthViewModel.kt](app/src/main/java/com/example/petrov122_prs/presentation/viewmodels/AuthViewModel.kt)
   - Оркестрация регистрации и входа
   - Валидация форм (email, пароль, имя пользователя)
   - Управление состоянием (Загрузка/Успех/Ошибка)
@@ -134,41 +134,41 @@
 ### Ключевые файлы:
 
 **Файлы макетов:**
-- `app/src/main/res/layout/activity_main.xml`
+- [activity_main.xml](app/src/main/res/layout/activity_main.xml)
   - CoordinatorLayout для продвинутой прокрутки
   - Контейнер NavHostFragment
 
-- `app/src/main/res/layout/fragment_login.xml`
+- [fragment_login.xml](app/src/main/res/layout/fragment_login.xml)
   - TextInputLayout с переключением видимости пароля
   - Material-кнопки (контурные, текстовые, заполненные)
   - Checkbox с кастомным стилем
   - ProgressBar для состояний загрузки
   - ScrollView для адаптивного дизайна
 
-- `app/src/main/res/layout/fragment_register.xml`
+- [fragment_register.xml](app/src/main/res/layout/fragment_register.xml)
   - Несколько TextInputLayout с валидацией
   - Отображение сообщений об ошибках
   - Организация полей формы
   - Кнопки действий (регистрация, демо, очистка)
 
-- `app/src/main/res/layout/fragment_main.xml`
+- [fragment_main.xml](app/src/main/res/layout/fragment_main.xml)
   - Простой макет панели управления
   - Дизайн с центрированным контентом
 
 **Функции улучшения UI:**
-- `app/src/main/java/com/example/authapp/presentation/utils/TooltipExtensions.kt`
+- [TooltipExtensions.kt](app/src/main/java/com/example/petrov122_prs/presentation/utils/TooltipExtensions.kt)
   - Кастомная система всплывающих подсказок
   - Всплывающие подсказки на основе Material Card
   - Функциональность автоматического скрытия
   - Помощь, активируемая фокусом
 
-- `app/src/main/java/com/example/authapp/domain/utils/TooltipManager.kt`
+- [TooltipManager.kt](app/src/main/java/com/example/petrov122_prs/domain/utils/TooltipManager.kt)
   - Управление состоянием всплывающих подсказок
   - Руководство для новых пользователей
   - Сохранение настроек всплывающих подсказок
 
 **Ресурсы:**
-- `app/src/main/res/values/colors.xml`
+- [colors.xml](app/src/main/res/values/colors.xml)
   - Цветовая палитра Material Design
   - Цвета стилей всплывающих подсказок
   - Согласованность темы
@@ -203,29 +203,29 @@
 ### Ключевые файлы:
 
 **Конфигурация навигации:**
-- `app/src/main/res/navigation/nav_graph.xml` 
+- [nav_graph.xml](app/src/main/res/navigation/nav_graph.xml) 
   - Граф навигации, определяющий все направления
   - Соединения действий между фрагментами
   - Конфигурация стартового направления
 
 **Activity:**
-- `app/src/main/java/com/example/authapp/presentation/activities/MainActivity.kt`
+- [MainActivity.kt](app/src/main/java/com/example/petrov122_prs/presentation/activities/MainActivity.kt)
   - Архитектура single-activity
   - Хостинг NavHostFragment
 
 **Навигация фрагментов:**
-- `app/src/main/java/com/example/authapp/presentation/fragments/LoginFragment.kt`
+- [LoginFragment.kt](app/src/main/java/com/example/petrov122_prs/presentation/fragments/LoginFragment.kt)
   - Навигация к RegisterFragment
   - Навигация к MainFragment (после входа)
   - Гостевая навигация
   - `findNavController().navigate(R.id.action_*)`
 
-- `app/src/main/java/com/example/authapp/presentation/fragments/RegisterFragment.kt`
+- [RegisterFragment.kt](app/src/main/java/com/example/petrov122_prs/presentation/fragments/RegisterFragment.kt)
   - Навигация к LoginFragment
   - Навигация к MainFragment (после регистрации)
   - Обработка обратной навигации
 
-- `app/src/main/java/com/example/authapp/presentation/fragments/MainFragment.kt`
+- [MainFragment.kt](app/src/main/java/com/example/petrov122_prs/presentation/fragments/MainFragment.kt)
   - Навигация к LoginFragment (после выхода)
   - Навигация домашнего экрана
 
@@ -253,7 +253,7 @@
 ### Ключевые файлы:
 
 **Управление всплывающими подсказками:**
-- `app/src/main/java/com/example/authapp/domain/utils/TooltipManager.kt`
+- [TooltipManager.kt](app/src/main/java/com/example/petrov122_prs/domain/utils/TooltipManager.kt)
   - Сохранение через DataStore
   - Отслеживание состояния отображения подсказок
   - Глобальное включение/отключение
@@ -262,7 +262,7 @@
   - 10+ предопределенных ключей подсказок
 
 **Отображение подсказок:**
-- `app/src/main/java/com/example/authapp/presentation/utils/TooltipExtensions.kt`
+- [TooltipExtensions.kt](app/src/main/java/com/example/petrov122_prs/presentation/utils/TooltipExtensions.kt)
   - Функции расширения View
   - Стилизация подсказок в Material Design
   - Автоматическое скрытие с настраиваемой длительностью
@@ -271,20 +271,20 @@
   - Всплывающие подсказки на основе MaterialCardView
 
 **Интеграция подсказок:**
-- `app/src/main/java/com/example/authapp/presentation/fragments/LoginFragment.kt`
+- [LoginFragment.kt](app/src/main/java/com/example/petrov122_prs/presentation/fragments/LoginFragment.kt)
   - Всплывающие подсказки, активируемые фокусом на полях ввода
   - Последовательное отображение подсказок
   - Руководство по кнопке демо
   - Объяснение "Запомнить меня"
 
-- `app/src/main/java/com/example/authapp/presentation/fragments/RegisterFragment.kt`
+- [RegisterFragment.kt](app/src/main/java/com/example/petrov122_prs/presentation/fragments/RegisterFragment.kt)
   - Всплывающие подсказки помощи для полей формы
   - Руководство по сложности пароля
   - Подсказки для email и имени пользователя
   - Объяснение подтверждения пароля
 
 **Внедрение зависимостей:**
-- `app/src/main/java/com/example/authapp/di/DatabaseModule.kt`
+- [DatabaseModule.kt](app/src/main/java/com/example/petrov122_prs/di/DatabaseModule.kt)
   - Провайдер TooltipManager
   - Паттерн Singleton
   - Инъекция контекста приложения
@@ -300,7 +300,7 @@
 ## Дополнительные архитектурные компоненты
 
 **Внедрение зависимостей:**
-- `app/src/main/java/com/example/authapp/di/DatabaseModule.kt`
+- [DatabaseModule.kt](app/src/main/java/com/example/petrov122_prs/di/DatabaseModule.kt)
   - Настройка Hilt/Dagger
   - Провайдеры Singleton для всех утилит
   - Предоставление экземпляра базы данных
@@ -314,4 +314,3 @@
 - Hilt для внедрения зависимостей
 - Архитектура MVVM
 - Принципы Clean Architecture
-
