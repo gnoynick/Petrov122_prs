@@ -52,8 +52,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Убрал кнопку togglePassword - используем встроенную иконку в TextInputLayout -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
